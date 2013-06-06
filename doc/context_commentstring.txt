@@ -1,0 +1,147 @@
+*context_commentstring.txt*	For Vim version 7.3	Last change: 2013 July 6
+
+Version 0.1.0
+Script ID: ????
+Copyright © 2013 Alejandro Exojo Piqueras <http://disperso.net/>
+License: MIT license  {{{
+	Permission is hereby granted, free of charge, to any person obtaining
+	a copy of this software and associated documentation files (the
+	"Software"), to deal in the Software without restriction, including
+	without limitation the rights to use, copy, modify, merge, publish,
+	distribute, sublicense, and/or sell copies of the Software, and to
+	permit persons to whom the Software is furnished to do so, subject to
+	the following conditions:
+
+	The above copyright notice and this permission notice shall be included
+	in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+	CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+CONTENTS				*context_commentstring-contents*
+
+Introduction				|context_commentstring-introduction|
+	Installation			|context_commentstring-installation|
+	Configuration and usage		|context_commentstring-configuration|
+Movement table				|context_commentstring-table|
+Customization				|context_commentstring-customization|
+Bugs and limitations			|context_commentstring-bugs|
+Credits and considerations		|context_commentstring-credits|
+Changelog				|context_commentstring-changelog|
+
+
+==============================================================================
+INTRODUCTION				*context_commentstring-introduction*
+
+*context_commentstring* is a Vim plugin that sets the value of 'commentstring'
+to a different value depending on the region of the file you are in. Is only
+useful for |file-types| where is possible to have a language embedded in a
+language. The most common example are small pieces of CSS or JavaScript in an
+HTML file, but also Lua, Python or Perl blocks embedded in Vim code.
+
+Note that it relies on the parsing done by the |syntax| highlighting system,
+so it works out of the box for several well known |file-types|, but you will
+have to write some |syntax-highlighting| file yourself if you don't have any
+and want to use this plugin for your |file-type|.
+
+The use of 'commentstring' is not very popular, but is necessary for Vim's
+|zf| action if you use the |fold-marker| feature. Is also exploited by Tim
+Pope's |commentary.txt| plugin, a utility to comment and uncomment lines of
+code. Find the plugin at:
+	https://github.com/tpope/vim-commentary
+
+------------------------------------------------------------------------------
+INSTALLATION				*context_commentstring-installation*
+
+The usual for any other Vim plugin: copy the files where Vim will look for
+them with the same directory layout that came with the plugin. If you use
+other plugins, color schemes, etc. that are installed by you, you probably
+know where that is. In UNIX-like systems (Linux, Mac OS X), is some place like
+$HOME/.vim, and on Windows $HOME/vimfiles. See |vimfiles| for details.
+
+If you don't have installed any plugins yet, I strongly recommend to first
+install and configure a plugin manager (a plugin to help you with other
+plugins), and then install |context_commentstring|. My recommendation is that
+you start with Pathogen because is very simple and it works very well with a
+version control system. Find it at:
+	https://github.com/tpope/vim-pathogen
+
+------------------------------------------------------------------------------
+CONFIGURATION AND USAGE			*context_commentstring-configuration*
+
+It should work out of the box for HTML and Vim. It will simply change the
+value of |commentstring| when you are in the appropriate region. See below for
+how to customize or extend it.
+
+==============================================================================
+CUSTOMIZATION				*context_commentstring-customization*
+
+The plugin works by checking if the current syntax group matches a group of an
+embedded language, for example, JavaScript inside HTML. You can check the
+default values by looking the source code, or simply with >
+	echo g:context_commentstring#table
+<
+
+This variable is of type |Dictionary|, and you can modify it to your will. You
+can add values or overwrite existing ones. If you think that some missing
+values are useful to you, contact the author so maybe others can benefit as
+well.
+
+The keys of the |Dictionary| variable are the |file-type| where you want the
+|commentstring| to change, and the values are nested |Dictionaries| that have
+pairs of syntax groups and values for |commentstring| as keys and values
+respectively.
+
+You will need to know the names of the syntax group. For that, you can use the
+|zS| command provided by |scriptease|, or use this simple but convenient
+snippet of code: >
+	augroup temporary_test
+	autocmd CursorMoved <buffer>
+		\ echo map(synstack(line('.'), col('.')),
+		\ 'synIDattr(v:val, "name")')
+<
+
+And when you are done with your testing, remove the echo doing: >
+	autocmd!
+	augroup END
+<
+
+
+==============================================================================
+BUGS					*context_commentstring-bugs*
+
+At the moment, there is only one known issue: it doesn't work properly at the
+edges of the embedded language, where the boundary is. Is unlikely that this
+will have a solution, and is an uncommon case anyway. Try to move the cursor
+one extra line further.
+
+Feel free to contact the author through Gitorious or GitHub:
+	https://gitorious.org/vim-for-qt-kde/vim-context_commentstring
+	https://github.com/suy/vim-context_commentstring
+
+==============================================================================
+CREDITS AND CONSIDERATIONS		*context_commentstring-credits*
+
+This plugin was created almost solely to be used as a sidekick for
+|commentary.txt|, by Tim Pope. And I only had the guts to attempt to implement
+it because I could look at the code of |scriptease.txt| (also by Tim Pope),
+where the names of the syntax groups are provided by |zS|. That was almost
+half the work, and to my taste the more boring one. So kudos to him. If you
+don't know his work yet, be sure to check it out. Closely tied with Kana
+Natsuno and Shougo Matsushita, is probably the most brilliant and active Vim
+plugin author.
+
+==============================================================================
+CHANGELOG				*context_commentstring-changelog*
+
+0.1.0	2013-06-06
+	- First public release.
+
+==============================================================================
+vim:tw=80:ts=8:ft=help:norl:fen:fdl=0:fdm=marker:
