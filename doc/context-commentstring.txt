@@ -1,4 +1,4 @@
-*context_commentstring.txt*	For Vim version 7.3	Last change: 2013 July 6
+*context-commentstring.txt*	For Vim version 7.3	Last change: 2013 July 6
 
 Version 0.1.0
 Script ID: ????
@@ -24,22 +24,22 @@ License: MIT license  {{{
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }}}
 
-CONTENTS				*context_commentstring-contents*
+CONTENTS				*context-commentstring-contents*
 
-Introduction				|context_commentstring-introduction|
-	Installation			|context_commentstring-installation|
-	Configuration and usage		|context_commentstring-configuration|
-Movement table				|context_commentstring-table|
-Customization				|context_commentstring-customization|
-Bugs and limitations			|context_commentstring-bugs|
-Credits and considerations		|context_commentstring-credits|
-Changelog				|context_commentstring-changelog|
+Introduction				|context-commentstring-introduction|
+	Installation			|context-commentstring-installation|
+	Configuration and usage		|context-commentstring-configuration|
+Movement table				|context-commentstring-table|
+Customization				|context-commentstring-customization|
+Bugs and limitations			|context-commentstring-bugs|
+Credits and considerations		|context-commentstring-credits|
+Changelog				|context-commentstring-changelog|
 
 
 ==============================================================================
-INTRODUCTION				*context_commentstring-introduction*
+INTRODUCTION				*context-commentstring-introduction*
 
-*context_commentstring* is a Vim plugin that sets the value of 'commentstring'
+*context-commentstring* is a Vim plugin that sets the value of 'commentstring'
 to a different value depending on the region of the file you are in. Is only
 useful for |file-types| where is possible to have a language embedded in a
 language. The most common example are small pieces of CSS or JavaScript in an
@@ -57,7 +57,7 @@ code. Find the plugin at:
 	https://github.com/tpope/vim-commentary
 
 ------------------------------------------------------------------------------
-INSTALLATION				*context_commentstring-installation*
+INSTALLATION				*context-commentstring-installation*
 
 The usual for any other Vim plugin: copy the files where Vim will look for
 them with the same directory layout that came with the plugin. If you use
@@ -67,25 +67,25 @@ $HOME/.vim, and on Windows $HOME/vimfiles. See |vimfiles| for details.
 
 If you don't have installed any plugins yet, I strongly recommend to first
 install and configure a plugin manager (a plugin to help you with other
-plugins), and then install |context_commentstring|. My recommendation is that
+plugins), and then install |context-commentstring|. My recommendation is that
 you start with Pathogen because is very simple and it works very well with a
 version control system. Find it at:
 	https://github.com/tpope/vim-pathogen
 
 ------------------------------------------------------------------------------
-CONFIGURATION AND USAGE			*context_commentstring-configuration*
+CONFIGURATION AND USAGE			*context-commentstring-configuration*
 
 It should work out of the box for HTML and Vim. It will simply change the
 value of |commentstring| when you are in the appropriate region. See below for
 how to customize or extend it.
 
 ==============================================================================
-CUSTOMIZATION				*context_commentstring-customization*
+CUSTOMIZATION				*context-commentstring-customization*
 
 The plugin works by checking if the current syntax group matches a group of an
 embedded language, for example, JavaScript inside HTML. You can check the
 default values by looking the source code, or simply with >
-	echo g:context_commentstring#table
+	echo g:context-commentstring#table
 <
 
 This variable is of type |Dictionary|, and you can modify it to your will. You
@@ -101,7 +101,7 @@ respectively.
 You will need to know the names of the syntax group. For that, you can use the
 |zS| command provided by |scriptease|, or use this simple but convenient
 snippet of code: >
-	augroup temporary_test
+	augroup temporary-test
 	autocmd CursorMoved <buffer>
 		\ echo map(synstack(line('.'), col('.')),
 		\ 'synIDattr(v:val, "name")')
@@ -114,7 +114,7 @@ And when you are done with your testing, remove the echo doing: >
 
 
 ==============================================================================
-BUGS					*context_commentstring-bugs*
+BUGS					*context-commentstring-bugs*
 
 At the moment, there is only one known issue: it doesn't work properly at the
 edges of the embedded language, where the boundary is. Is unlikely that this
@@ -122,11 +122,11 @@ will have a solution, and is an uncommon case anyway. Try to move the cursor
 one extra line further.
 
 Feel free to contact the author through Gitorious or GitHub:
-	https://gitorious.org/vim-for-qt-kde/vim-context_commentstring
-	https://github.com/suy/vim-context_commentstring
+	https://gitorious.org/vim-for-qt-kde/vim-context-commentstring
+	https://github.com/suy/vim-context-commentstring
 
 ==============================================================================
-CREDITS AND CONSIDERATIONS		*context_commentstring-credits*
+CREDITS AND CONSIDERATIONS		*context-commentstring-credits*
 
 This plugin was created almost solely to be used as a sidekick for
 |commentary.txt|, by Tim Pope. And I only had the guts to attempt to implement
@@ -138,7 +138,7 @@ Natsuno and Shougo Matsushita, is probably the most brilliant and active Vim
 plugin author.
 
 ==============================================================================
-CHANGELOG				*context_commentstring-changelog*
+CHANGELOG				*context-commentstring-changelog*
 
 0.1.0	2013-06-06
 	- First public release.

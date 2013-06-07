@@ -14,7 +14,7 @@ augroup END
 
 
 function! s:Bootstrap()
-	if !empty(&filetype) && has_key(g:context_commentstring#table, &filetype)
+	if !empty(&filetype) && has_key(g:context#commentstring#table, &filetype)
 		let b:original_commentstring=&l:commentstring
 		augroup ContextCommentstringEnabled
 			autocmd!
@@ -28,8 +28,8 @@ function! s:UpdateCommentString()
 	let stack = synstack(line('.'), col('.'))
 	if !empty(stack)
 		for name in map(stack, 'synIDattr(v:val, "name")')
-			if has_key(g:context_commentstring#table[&filetype], name)
-				let &commentstring = g:context_commentstring#table[&filetype][name]
+			if has_key(g:context#commentstring#table[&filetype], name)
+				let &commentstring = g:context#commentstring#table[&filetype][name]
 				return
 			endif
 		endfor
