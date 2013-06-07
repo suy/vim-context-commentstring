@@ -29,7 +29,6 @@ CONTENTS				*context-commentstring-contents*
 Introduction				|context-commentstring-introduction|
 	Installation			|context-commentstring-installation|
 	Configuration and usage		|context-commentstring-configuration|
-Movement table				|context-commentstring-table|
 Customization				|context-commentstring-customization|
 Bugs and limitations			|context-commentstring-bugs|
 Credits and considerations		|context-commentstring-credits|
@@ -85,7 +84,7 @@ CUSTOMIZATION				*context-commentstring-customization*
 The plugin works by checking if the current syntax group matches a group of an
 embedded language, for example, JavaScript inside HTML. You can check the
 default values by looking the source code, or simply with >
-	echo g:context-commentstring#table
+	echo g:context#commentstring#table
 <
 
 This variable is of type |Dictionary|, and you can modify it to your will. You
@@ -101,7 +100,7 @@ respectively.
 You will need to know the names of the syntax group. For that, you can use the
 |zS| command provided by |scriptease|, or use this simple but convenient
 snippet of code: >
-	augroup temporary-test
+	augroup temporary_test
 	autocmd CursorMoved <buffer>
 		\ echo map(synstack(line('.'), col('.')),
 		\ 'synIDattr(v:val, "name")')
