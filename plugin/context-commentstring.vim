@@ -29,7 +29,7 @@ function! s:UpdateCommentString()
 	if !empty(stack)
 		for name in map(stack, 'synIDattr(v:val, "name")')
 			if has_key(g:context#commentstring#table[&filetype], name)
-				let &commentstring = g:context#commentstring#table[&filetype][name]
+				let &l:commentstring = g:context#commentstring#table[&filetype][name]
 				return
 			endif
 		endfor
