@@ -75,7 +75,7 @@ version control system. Find it at:
 CONFIGURATION AND USAGE			*context-commentstring-configuration*
 
 It should work out of the box for HTML and Vim. It will simply change the
-value of |commentstring| when you are in the appropriate region. See below for
+value of 'commentstring' when you are in the appropriate region. See below for
 how to customize or extend it.
 
 ==============================================================================
@@ -93,8 +93,8 @@ values are useful to you, contact the author so maybe others can benefit as
 well.
 
 The keys of the |Dictionary| variable are the |file-type| where you want the
-|commentstring| to change, and the values are nested |Dictionaries| that have
-pairs of syntax groups and values for |commentstring| as keys and values
+'commentstring' to change, and the values are nested |Dictionaries| that have
+pairs of syntax groups and values for 'commentstring' as keys and values
 respectively.
 
 You will need to know the names of the syntax group. For that, you can use the
