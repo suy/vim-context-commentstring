@@ -1,4 +1,4 @@
-*context-commentstring.txt*	For Vim version 7.3	Last change: 2013 July 6
+*context-commentstring.txt*       Change 'commentstring' according to context.
 
 Version 0.1.0
 Script ID: ????
@@ -74,9 +74,9 @@ version control system. Find it at:
 ------------------------------------------------------------------------------
 CONFIGURATION AND USAGE			*context-commentstring-configuration*
 
-It should work out of the box for HTML and Vim. It will simply change the
-value of 'commentstring' when you are in the appropriate region. See below for
-how to customize or extend it.
+It should work out of the box for HTML and VimL (Vim script) files. It will
+simply change the value of 'commentstring' when you are in the appropriate
+region. See below for how to customize or extend it.
 
 ==============================================================================
 CUSTOMIZATION				*context-commentstring-customization*
@@ -106,7 +106,8 @@ snippet of code: >
 		\ 'synIDattr(v:val, "name")')
 <
 
-And when you are done with your testing, remove the echo doing: >
+That will echo to the |Command-line| an array of the values of the current
+syntax groups. When you are done with your testing, remove the echo doing: >
 	autocmd!
 	augroup END
 <
