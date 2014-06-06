@@ -140,6 +140,10 @@ plugin author.
 ==============================================================================
 CHANGELOG				*context-commentstring-changelog*
 
+0.1.1	2014-06-06
+	- Clear the autocommand always, in case the filetype is changed for
+	  whatever reason.
+
 0.1.0	2013-06-06
 	- First public release.
 
