@@ -17,3 +17,20 @@ let g:context#commentstring#table.html = {
 
 let g:context#commentstring#table.xhtml = g:context#commentstring#table.html
 
+let g:context#commentstring#table['javascript.jsx'] = {
+			\ 'jsxStatment' : '/*%s*/',
+			\ 'jsxRegion' : '{/*%s*/}',
+			\}
+
+let g:context#commentstring#table['typescript.tsx'] = {
+			\ 'tsxStatment' : '/*%s*/',
+			\ 'tsxRegion' : '{/*%s*/}',
+			\}
+
+let g:context#commentstring#table.vue = {
+			\ 'javaScript'  : '//%s',
+			\ 'cssStyle'    : '/*%s*/',
+			\}
+
+let g:context#commentstring#table['typescript.jsx'] = g:context#commentstring#table['typescript.tsx']
+
