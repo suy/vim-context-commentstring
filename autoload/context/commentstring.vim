@@ -18,19 +18,32 @@ let g:context#commentstring#table.html = {
 let g:context#commentstring#table.xhtml = g:context#commentstring#table.html
 
 let g:context#commentstring#table['javascript.jsx'] = {
-			\ 'jsxStatment' : '/*%s*/',
+			\ 'jsComment' : '// %s',
+			\ 'jsImport' : '// %s',
+			\ 'jsxStatment' : '// %s',
 			\ 'jsxRegion' : '{/*%s*/}',
+			\ 'jsxTag' : '{/*%s*/}',
+			\}
+
+let g:context#commentstring#table['typescript.jsx'] = {
+			\ 'jsComment' : '// %s',
+			\ 'jsImport' : '// %s',
+			\ 'jsxStatment' : '// %s',
+			\ 'jsxRegion' : '{/*%s*/}',
+			\ 'jsxTag' : '{/*%s*/}',
 			\}
 
 let g:context#commentstring#table['typescript.tsx'] = {
-			\ 'tsxStatment' : '/*%s*/',
+			\ 'tsComment' : '// %s',
+			\ 'tsImport' : '// %s',
+			\ 'tsxStatment' : '// %s',
 			\ 'tsxRegion' : '{/*%s*/}',
+			\ 'tsxTag' : '{/*%s*/}',
 			\}
+
 
 let g:context#commentstring#table.vue = {
 			\ 'javaScript'  : '//%s',
 			\ 'cssStyle'    : '/*%s*/',
 			\}
-
-let g:context#commentstring#table['typescript.jsx'] = g:context#commentstring#table['typescript.tsx']
 
