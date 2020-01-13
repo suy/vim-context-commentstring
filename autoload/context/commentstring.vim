@@ -23,6 +23,7 @@ let g:context#commentstring#table['javascript.jsx'] = {
 			\ 'jsxStatment' : '// %s',
 			\ 'jsxRegion' : '{/*%s*/}',
 			\ 'jsxTag' : '{/*%s*/}',
+			\ 'jsFuncBlock' : '// %s',
 			\}
 
 let g:context#commentstring#table['typescript.jsx'] = {
