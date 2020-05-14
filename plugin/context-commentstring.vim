@@ -35,6 +35,9 @@ function! s:UpdateCommentString()
 				return
 			endif
 		endfor
+  elseif exists("g:context#commentstring#table[&filetype]['undefined']")
+	  let &l:commentstring = g:context#commentstring#table[&filetype]['undefined']
+		return
 	endif
 	let &l:commentstring = b:original_commentstring
 endfunction
