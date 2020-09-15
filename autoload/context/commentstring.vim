@@ -48,3 +48,9 @@ let g:context#commentstring#table.vue = {
 			\ 'cssStyle'    : '/*%s*/',
 			\}
 
+let g:context#commentstring#comments_table = {}
+let g:context#commentstring#comments_table.vue = {
+			\ 'htmlTag': 's:<!--,m:    ,e:-->',
+			\ 'vue_typescript': 's1:/*,mb:*,ex:*/,://',
+			\ 'cssStyle': 's1:/*,mb:*,ex:*/,://',
+			\ }
