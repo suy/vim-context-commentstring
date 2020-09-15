@@ -55,6 +55,11 @@ Pope's |commentary.txt| plugin, a utility to comment and uncomment lines of
 code. Find the plugin at:
 	https://github.com/tpope/vim-commentary
 
+Additionally, this plugin sets the value of the 'comments' setting
+automatically. The 'comments' setting describes how inserting new lines should
+be handled when inside a comment region. This automatic formatting can be
+configured via the 'formatoptions' setting.
+
 ------------------------------------------------------------------------------
 INSTALLATION				*context-commentstring-installation*
 
@@ -111,6 +116,10 @@ syntax groups. When you are done with your testing, remove the echo doing: >
 	autocmd!
 	augroup END
 <
+
+The 'comments' setting can be configured the exact same way as 'commentstring'
+but the variable to change is >
+	g:context#commentstring#comments_table
 
 
 ==============================================================================

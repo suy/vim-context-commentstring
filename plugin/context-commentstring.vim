@@ -22,6 +22,10 @@ function! s:Setup()
 			let b:original_commentstring=&l:commentstring
 			autocmd CursorMoved <buffer> call <SID>UpdateCommentString()
 		endif
+		if !empty(&filetype) && has_key(g:context#commentstring#comments_table, &filetype)
+			let b:original_comments=&l:comments
+			autocmd CursorMoved <buffer> call <SID>UpdateComments()
+		endif
 	augroup END
 endfunction
 
@@ -37,6 +41,21 @@ function! s:UpdateCommentString()
 		endfor
 	endif
 	let &l:commentstring = b:original_commentstring
+endfunction
+
+
+function! s:UpdateComments()
+	let stack = synstack(line('.'), col('.'))
+	call reverse(stack)
+	if !empty(stack)
+		for name in map(stack, 'synIDattr(v:val, "name")')
+			if has_key(g:context#commentstring#comments_table[&filetype], name)
+				let &l:comments = g:context#commentstring#comments_table[&filetype][name]
+				return
+			endif
+		endfor
+	endif
+	let &l:commentstring = b:original_comments
 endfunction
 
 
