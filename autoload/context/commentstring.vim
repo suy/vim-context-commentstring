@@ -17,33 +17,21 @@ let g:context#commentstring#table.html = {
 
 let g:context#commentstring#table.xhtml = g:context#commentstring#table.html
 
-let g:context#commentstring#table['javascript.jsx'] = {
+let react = {
 			\ 'jsComment' : '// %s',
 			\ 'jsImport' : '// %s',
 			\ 'jsxStatment' : '// %s',
 			\ 'jsxRegion' : '{/*%s*/}',
 			\ 'jsxTag' : '{/*%s*/}',
 			\}
-
-let g:context#commentstring#table['typescript.jsx'] = {
-			\ 'jsComment' : '// %s',
-			\ 'jsImport' : '// %s',
-			\ 'jsxStatment' : '// %s',
-			\ 'jsxRegion' : '{/*%s*/}',
-			\ 'jsxTag' : '{/*%s*/}',
-			\}
-
-let g:context#commentstring#table['typescript.tsx'] = {
-			\ 'tsComment' : '// %s',
-			\ 'tsImport' : '// %s',
-			\ 'tsxStatment' : '// %s',
-			\ 'tsxRegion' : '{/*%s*/}',
-			\ 'tsxTag' : '{/*%s*/}',
-			\}
-
+let g:context#commentstring#table['javascript.jsx'] = react
+let g:context#commentstring#table['typescript.jsx'] = react
+let g:context#commentstring#table['typescript.tsx'] = react
+let g:context#commentstring#table['typescriptreact'] = {
+      \ 'tsxRegion': '{/*%s*/}'
+      \}
 
 let g:context#commentstring#table.vue = {
 			\ 'javaScript'  : '//%s',
 			\ 'cssStyle'    : '/*%s*/',
 			\}
-
