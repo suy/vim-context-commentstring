@@ -4,6 +4,10 @@
 
 let g:context#comments#table = {}
 
+let g:context#comments#table['vim'] = {
+			\ 'vimLuaRegion'     : ':--',
+			\}
+
 let g:context#comments#table['vue'] = {
 			\ 'htmlTag': 's:<!--,m:    ,e:-->',
 			\ 'vue_typescript': 's1:/*,mb:*,ex:*/,://',
