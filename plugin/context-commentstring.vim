@@ -1,4 +1,4 @@
-" This file is part of vim-context_commentstring.
+" This file is part of vim-context-commentstring.
 " Copyright: © 2013-2014 Alejandro Exojo Piqueras <http://disperso.net/>
 " License: MIT (see doc for details).
 
@@ -22,7 +22,7 @@ function! s:Setup()
 			let b:original_commentstring=&l:commentstring
 			autocmd CursorMoved <buffer> call <SID>UpdateCommentString()
 		endif
-		if !empty(&filetype) && has_key(g:context#commentstring#comments_table, &filetype)
+		if !empty(&filetype) && has_key(g:context#comments#table, &filetype)
 			let b:original_comments=&l:comments
 			autocmd CursorMoved <buffer> call <SID>UpdateComments()
 		endif
@@ -49,13 +49,13 @@ function! s:UpdateComments()
 	call reverse(stack)
 	if !empty(stack)
 		for name in map(stack, 'synIDattr(v:val, "name")')
-			if has_key(g:context#commentstring#comments_table[&filetype], name)
-				let &l:comments = g:context#commentstring#comments_table[&filetype][name]
+			if has_key(g:context#comments#table[&filetype], name)
+				let &l:comments = g:context#comments#table[&filetype][name]
 				return
 			endif
 		endfor
 	endif
-	let &l:commentstring = b:original_comments
+	let &l:comments = b:original_comments
 endfunction
 
 
