@@ -39,5 +39,6 @@ let g:context#commentstring#table['typescript.tsx'] = {
 let g:context#commentstring#table['vue'] = {
 			\ 'javaScript'  : '//%s',
 			\ 'cssStyle'    : '/*%s*/',
+			\ 'vue_scss'    : '/*%s*/',
 			\}
 
