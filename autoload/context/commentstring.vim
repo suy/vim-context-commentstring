@@ -40,5 +40,6 @@ let g:context#commentstring#table['vue'] = {
 			\ 'javaScript'  : '//%s',
 			\ 'cssStyle'    : '/*%s*/',
 			\ 'vue_scss'    : '/*%s*/',
+			\ 'vue_pug'    : '// %s',
 			\}
 
